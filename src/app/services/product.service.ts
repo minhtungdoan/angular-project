@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
   // call api
-  apiUrl = 'https://fakestoreapi.com/products'; // khai bao apiUrl
+  // apiUrl = 'https://fakestoreapi.com/products'; // khai bao apiUrl
+  apiUrl = 'https://hoadv-nodejs.vercel.app/api/products'; // khai bao apiUrl
   http = inject(HttpClient); // inject bien http
   constructor() {}
 

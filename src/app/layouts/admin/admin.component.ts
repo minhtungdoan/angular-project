@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../types/Product';
 
 @Component({
   selector: 'app-admin',
@@ -9,4 +11,12 @@ import { SidebarComponent } from '../../components/sidebar/sidebar.component';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
 })
-export class AdminComponent {}
+export class AdminComponent {
+  // productService = inject(ProductService);
+  // productList: Product[] = [];
+  // ngOnInit(): void {
+  //   this.productService
+  //     .getProductList()
+  //     .subscribe((res) => (this.productList = res));
+  // }
+}
