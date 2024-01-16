@@ -1,25 +1,29 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { ProductAdmin } from '../../../types/Product';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, RouterLink, NgIf],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
 export class ProductsComponent {
   productService = inject(ProductService);
+  loading: boolean = true;
 
   productList: ProductAdmin[] = [];
 
   ngOnInit(): void {
     this.productService
       .getProductListAdmin()
-      .subscribe((res: ProductAdmin[]) => (this.productList = res));
+      .subscribe((res: ProductAdmin[]) => {
+        this.productList = res;
+        this.loading = false;
+      });
   }
 
   deleteProduct(id: string, event: Event): void {
