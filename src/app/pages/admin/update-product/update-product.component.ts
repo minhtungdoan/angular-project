@@ -70,7 +70,7 @@ export class UpdateProductComponent {
       console.log(123);
       this.editProduct = {
         ...product,
-        category: product.category.title,
+        category: product.category._id,
         rate: product.rate,
       };
       this.loading = false;
