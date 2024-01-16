@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core'; // khai bao inject
+import { Component, NgModule, inject } from '@angular/core'; // khai bao inject
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NgFor } from '@angular/common';
 import { ProductService } from '../../services/product.service'; // import services
 import { Product } from '../../types/Product';
+import { CustomSlicePipe } from '../../pipes/custom-slice.pipe';
 @Component({
   selector: 'app-home',
   standalone: true,

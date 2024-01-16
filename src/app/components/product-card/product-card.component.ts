@@ -1,12 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { SlicePipe } from '@angular/common';
+import { Component, Input, NgModule } from '@angular/core';
+import { CustomSlicePipe } from '../../pipes/custom-slice.pipe';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [],
+  imports: [SlicePipe],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.css',
+  styleUrls: ['./product-card.component.css'], // Corrected property name
 })
 export class ProductCardComponent {
   @Input() productChild: any;
 }
+
+@NgModule({
+  declarations: [
+    // ...
+    CustomSlicePipe,
+  ],
+  // ...
+})
+export class AppModule {}
