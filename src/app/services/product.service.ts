@@ -11,7 +11,7 @@ export class ProductService {
   apiUrl = 'https://fakestoreapi.com/products'; // khai bao apiUrl
   apiAdminUrl = 'https://hoadv-nodejs.vercel.app/api/products'; // khai bao apiUrl
   // api = 'http://localhost:8000/laptops/';
-  api = 'https://angular-project-api.vercel.app/laptops';
+  api = 'https://tungdm-angular-api.vercel.app/laptops';
   http = inject(HttpClient); // inject bien http
   constructor() {}
 
