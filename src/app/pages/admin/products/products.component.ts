@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
-import { ProductAdmin } from '../../../types/Product';
+import { Laptop, ProductAdmin } from '../../../types/Product';
 import { NgFor, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 
@@ -15,15 +15,13 @@ export class ProductsComponent {
   productService = inject(ProductService);
   loading: boolean = true;
 
-  productList: ProductAdmin[] = [];
+  productList: Laptop[] = [];
 
   ngOnInit(): void {
-    this.productService
-      .getProductListAdmin()
-      .subscribe((res: ProductAdmin[]) => {
-        this.productList = res;
-        this.loading = false;
-      });
+    this.productService.getProductListAdmin().subscribe((res: Laptop[]) => {
+      this.productList = res;
+      this.loading = false;
+    });
   }
 
   deleteProduct(id: string, event: Event): void {

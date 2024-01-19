@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core'; // inject
 import { HttpClient } from '@angular/common/http'; // HttpClient
-import { Product, ProductAdmin } from '../types/Product';
+import { Laptop, Product, ProductAdmin } from '../types/Product';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,28 +10,27 @@ export class ProductService {
   // call api
   apiUrl = 'https://fakestoreapi.com/products'; // khai bao apiUrl
   apiAdminUrl = 'https://hoadv-nodejs.vercel.app/api/products'; // khai bao apiUrl
+  // api = 'http://localhost:8000/laptops/';
+  api = 'https://angular-project-api.vercel.app/laptops';
   http = inject(HttpClient); // inject bien http
   constructor() {}
 
-  getProductList(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl); //axios.get(apiUrl)
+  getProductList(): Observable<Laptop[]> {
+    return this.http.get<Laptop[]>(this.api); //axios.get(apiUrl)
   }
-  getProductListAdmin(): Observable<ProductAdmin[]> {
-    return this.http.get<ProductAdmin[]>(this.apiAdminUrl); //axios.get(apiUrl)
+  getProductListAdmin(): Observable<Laptop[]> {
+    return this.http.get<Laptop[]>(this.api); //axios.get(apiUrl)
   }
-  getProductDetail(id: string): Observable<ProductAdmin> {
-    return this.http.get<ProductAdmin>(`${this.apiAdminUrl}/${id}`);
+  getProductDetail(id: string): Observable<Laptop> {
+    return this.http.get<Laptop>(`${this.api}/${id}`);
   }
-  deleteProductAdmin(id: string): Observable<ProductAdmin[]> {
-    return this.http.delete<ProductAdmin[]>(`${this.apiAdminUrl}/${id}`);
+  deleteProductAdmin(id: string): Observable<Laptop[]> {
+    return this.http.delete<Laptop[]>(`${this.api}/${id}`);
   }
-  addProductAdmin(product: ProductAdmin): Observable<ProductAdmin[]> {
-    return this.http.post<ProductAdmin[]>(this.apiAdminUrl, product);
+  addProductAdmin(product: Laptop): Observable<Laptop[]> {
+    return this.http.post<Laptop[]>(this.api, product);
   }
-  editProductAmdmin(
-    id: string,
-    product: ProductAdmin
-  ): Observable<ProductAdmin> {
-    return this.http.put<ProductAdmin>(`${this.apiAdminUrl}/${id}`, product);
+  editProductAmdmin(id: string, product: Laptop): Observable<Laptop> {
+    return this.http.put<Laptop>(`${this.api}/${id}`, product);
   }
 }

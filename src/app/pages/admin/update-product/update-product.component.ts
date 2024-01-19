@@ -6,7 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
-import { CreateProductForm, ProductAdmin } from '../../../types/Product';
+import {
+  CreateProductForm,
+  Laptop,
+  ProductAdmin,
+} from '../../../types/Product';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
@@ -19,12 +23,12 @@ import { NgIf } from '@angular/common';
 })
 export class UpdateProductComponent {
   createForm: FormGroup = new FormGroup({
-    title: new FormControl('', [
+    name: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(30),
     ]),
-    category: new FormControl('', [Validators.required]),
+    brand: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required, Validators.min(1)]),
     description: new FormControl('', [
@@ -32,7 +36,7 @@ export class UpdateProductComponent {
       Validators.minLength(10),
       Validators.maxLength(100),
     ]),
-    rate: new FormControl('', [Validators.required]),
+    // rate: new FormControl('', [Validators.required]),
   });
 
   productService = inject(ProductService);
@@ -45,13 +49,13 @@ export class UpdateProductComponent {
   isEditting: boolean = false;
   productId: string = '';
   loading: boolean = true;
-  editProduct: CreateProductForm = {
-    title: '',
-    category: '',
+  editProduct: Laptop = {
+    _id: '',
+    name: '',
+    brand: '',
     image: '',
     price: 0,
     description: '',
-    rate: 0,
   };
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
@@ -68,11 +72,7 @@ export class UpdateProductComponent {
   getEditProduct(id: string) {
     this.productService.getProductDetail(id).subscribe((product) => {
       console.log(123);
-      this.editProduct = {
-        ...product,
-        category: product.category._id,
-        rate: product.rate,
-      };
+      this.editProduct = product;
       this.loading = false;
       console.log(this.editProduct);
     });

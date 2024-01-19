@@ -15,6 +15,15 @@ export type Product = {
   };
 };
 
+export type Laptop = {
+  _id: string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+  brand: string;
+};
+
 export type ProductAdmin = Omit<Product, 'id' | 'rating'> & {
   _id: string;
   category: Category;

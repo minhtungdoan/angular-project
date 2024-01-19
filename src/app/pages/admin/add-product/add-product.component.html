@@ -10,36 +10,36 @@
         <label
           for="email"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Title</label
+          >Name</label
         >
         <input
           type="email"
           id="email"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Title..."
+          placeholder="Name..."
           required
-          formControlName="title"
+          formControlName="name"
         />
         <div
           *ngIf="
-            createForm['controls']['title'].dirty &&
-            createForm['controls']['title'].errors
+            createForm['controls']['name'].dirty &&
+            createForm['controls']['name'].errors
           "
         >
           <small
             class="text-red-600"
-            *ngIf="createForm['controls']['title'].errors['required']"
-            >*Title khong duoc bo trong</small
+            *ngIf="createForm['controls']['name'].errors['required']"
+            >*name khong duoc bo trong</small
           >
           <small
             class="text-red-600"
-            *ngIf="createForm['controls']['title'].errors['minlength']"
-            >*Title toi thieu 3 ki tu</small
+            *ngIf="createForm['controls']['name'].errors['minlength']"
+            >*name toi thieu 3 ki tu</small
           >
           <small
             class="text-red-600"
-            *ngIf="createForm['controls']['title'].errors['maxlength']"
-            >*Title toi da 30 ki tu</small
+            *ngIf="createForm['controls']['name'].errors['maxlength']"
+            >*name toi da 30 ki tu</small
           >
         </div>
       </div>
@@ -47,26 +47,26 @@
         <label
           for="email"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Category(ID: 65670b2ed9ea7c58e35168ee. Thầy thêm ID này ạ)</label
+          >Brand</label
         >
         <input
           type="email"
           id="email"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Category ID..."
+          placeholder="brand..."
           required
-          formControlName="category"
+          formControlName="brand"
         />
         <div
           *ngIf="
-            createForm['controls']['category'].dirty &&
-            createForm['controls']['category'].errors
+            createForm['controls']['brand'].dirty &&
+            createForm['controls']['brand'].errors
           "
         >
           <small
             class="text-red-600"
-            *ngIf="createForm['controls']['category'].errors['required']"
-            >*Category khong duoc bo trong</small
+            *ngIf="createForm['controls']['brand'].errors['required']"
+            >*brand khong duoc bo trong</small
           >
         </div>
       </div>
@@ -129,7 +129,7 @@
           >
         </div>
       </div>
-      <div class="">
+      <!-- <div class="">
         <label
           for="countries"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -183,7 +183,7 @@
             >*Image khong duoc bo trong</small
           >
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="">
       <label

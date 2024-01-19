@@ -4,7 +4,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NgFor } from '@angular/common';
 import { ProductService } from '../../services/product.service'; // import services
-import { Product } from '../../types/Product';
+import { Laptop, Product } from '../../types/Product';
 import { CustomSlicePipe } from '../../pipes/custom-slice.pipe';
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ import { CustomSlicePipe } from '../../pipes/custom-slice.pipe';
 export class HomeComponent {
   productService = inject(ProductService); // inject vao bien
 
-  productList: Product[] = [];
+  productList: Laptop[] = [];
 
   ngOnInit(): void {
     this.productService
