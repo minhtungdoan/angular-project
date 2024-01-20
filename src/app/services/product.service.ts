@@ -24,11 +24,11 @@ export class ProductService {
   getProductDetail(id: string): Observable<Laptop> {
     return this.http.get<Laptop>(`${this.api}/${id}`);
   }
-  deleteProductAdmin(id: string): Observable<Laptop[]> {
-    return this.http.delete<Laptop[]>(`${this.api}/${id}`);
+  deleteProductAdmin(id: string): Observable<Laptop> {
+    return this.http.delete<Laptop>(`${this.api}/${id}`);
   }
-  addProductAdmin(product: Laptop): Observable<Laptop[]> {
-    return this.http.post<Laptop[]>(this.api, product);
+  addProductAdmin(product: Laptop): Observable<Laptop> {
+    return this.http.post<Laptop>(this.api, product);
   }
   editProductAmdmin(id: string, product: Laptop): Observable<Laptop> {
     return this.http.put<Laptop>(`${this.api}/${id}`, product);
