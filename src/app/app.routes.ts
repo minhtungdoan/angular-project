@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LoginUserComponent } from './pages/auth/login-user/login-user.component';
 import { RegisterUserComponent } from './pages/auth/register-user/register-user.component';
+import { adminGuard } from './guards/admin.guard';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login-admin', component: LoginComponent },
@@ -16,7 +17,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AuthGuardService],
+    canActivate: [adminGuard],
     children: [
       { path: 'products', component: ProductsComponent },
       {
