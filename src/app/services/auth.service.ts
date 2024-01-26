@@ -11,14 +11,14 @@ export class AuthService {
 
   login(user: LoginForm) {
     return this.http.post<LoginFormResponse>(
-      'https://tungdm-angular-api.vercel.app/auth/login',
+      'https://angular-project-api.vercel.app/auth/login',
       user
     );
   }
 
   register(user: RegisterForm) {
     return this.http.post<RegisterForm>(
-      'https://tungdm-angular-api.vercel.app/auth/register',
+      'https://angular-project-api.vercel.app/auth/register',
       user
     );
   }
