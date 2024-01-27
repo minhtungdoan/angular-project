@@ -9,6 +9,10 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { LoginUserComponent } from './pages/auth/login-user/login-user.component';
 import { RegisterUserComponent } from './pages/auth/register-user/register-user.component';
 import { adminGuard } from './guards/admin.guard';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { CategoriesComponent } from './pages/admin/categories/categories.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
+import { UsersComponent } from './pages/admin/users/users.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login-admin', component: LoginComponent },
@@ -19,6 +23,10 @@ export const routes: Routes = [
     component: AdminComponent,
     canActivate: [adminGuard],
     children: [
+      {
+        path: 'users',
+        component: UsersComponent,
+      },
       { path: 'products', component: ProductsComponent },
       {
         path: '',
@@ -31,6 +39,18 @@ export const routes: Routes = [
       {
         path: 'products/edit-product/:id',
         component: UpdateProductComponent,
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent,
+      },
+      {
+        path: 'categories/add-category',
+        component: AddCategoryComponent,
+      },
+      {
+        path: 'categories/edit-category/:id',
+        component: UpdateCategoryComponent,
       },
     ],
   },

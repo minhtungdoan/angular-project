@@ -4,7 +4,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NgFor } from '@angular/common';
 import { ProductService } from '../../services/product.service'; // import services
-import { Laptop, Product } from '../../types/Product';
+import { Laptop } from '../../types/Product';
 import { CustomSlicePipe } from '../../pipes/custom-slice.pipe';
 @Component({
   selector: 'app-home',

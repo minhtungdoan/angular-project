@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { LoginForm, LoginFormResponse, RegisterForm } from '../types/Auth';
+import {
+  LoginForm,
+  LoginFormResponse,
+  RegisterForm,
+  User,
+} from '../types/Auth';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +13,10 @@ import { LoginForm, LoginFormResponse, RegisterForm } from '../types/Auth';
 export class AuthService {
   http = inject(HttpClient);
   constructor() {}
+
+  getUserList() {
+    return this.http.get<User[]>('https://angular-project-api.vercel.app/auth');
+  }
 
   login(user: LoginForm) {
     return this.http.post<LoginFormResponse>(

@@ -1,5 +1,7 @@
 <div class="w-full">
-  <h2 class="text-4xl font-extrabold dark:text-white">Add product</h2>
+  <h2 class="text-center text-4xl font-extrabold dark:text-white">
+    Add product
+  </h2>
   <form
     class="mx-auto mt-4"
     [formGroup]="createForm"
@@ -45,6 +47,46 @@
       </div>
       <div class="">
         <label
+          for="countries"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Category</label
+        >
+        <select
+          id="countries"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          formControlName="category"
+        >
+          <option
+            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            disabled
+            selected
+            value=""
+          >
+            Select a category...
+          </option>
+          <option
+            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            value="{{ category._id }}"
+            *ngFor="let category of categoryList"
+          >
+            {{ category.name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            createForm['controls']['category'].dirty &&
+            createForm['controls']['category'].errors
+          "
+        >
+          <small
+            class="text-red-600"
+            *ngIf="createForm['controls']['category'].errors['required']"
+            >*Category khong duoc bo trong</small
+          >
+        </div>
+      </div>
+      <!-- <div class="">
+        <label
           for="email"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >Brand</label
@@ -69,7 +111,7 @@
             >*brand khong duoc bo trong</small
           >
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="mb-5 grid grid-cols-[50%_30%_19%] gap-2">
       <div class="">
@@ -129,61 +171,6 @@
           >
         </div>
       </div>
-      <!-- <div class="">
-        <label
-          for="countries"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Rate</label
-        >
-        <select
-          id="countries"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          formControlName="rate"
-        >
-          <option
-            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            value="5"
-          >
-            5 sao
-          </option>
-          <option
-            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            value="4"
-          >
-            4 sao
-          </option>
-          <option
-            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            value="3"
-          >
-            3 sao
-          </option>
-          <option
-            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            value="2"
-          >
-            2 sao
-          </option>
-          <option
-            class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            value="1"
-          >
-            1 sao
-          </option>
-        </select>
-        <div
-          *ngIf="
-            createForm['controls']['rate'].dirty &&
-            createForm['controls']['rate'].errors
-          "
-        >
-          <small
-            class="text-red-600"
-            *ngIf="createForm['controls']['rate'].errors['required']"
-            >*Image khong duoc bo trong</small
-          >
-        </div>
-      </div> -->
     </div>
     <div class="">
       <label

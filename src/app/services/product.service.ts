@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core'; // inject
 import { HttpClient } from '@angular/common/http'; // HttpClient
-import { Laptop, Product, ProductAdmin } from '../types/Product';
+import { Laptop } from '../types/Product';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,9 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
   // call api
-  // apiUrl = 'https://fakestoreapi.com/products'; // khai bao apiUrl
-  // apiAdminUrl = 'https://hoadv-nodejs.vercel.app/api/products'; // khai bao apiUrl
-  // api = 'http://localhost:8000/laptops/';
   api = 'https://angular-project-api.vercel.app/laptops';
   http = inject(HttpClient); // inject bien http
   constructor() {}

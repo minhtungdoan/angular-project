@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
-import { Laptop, ProductAdmin } from '../../../types/Product';
+import { Laptop } from '../../../types/Product';
 import { NgFor, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 
@@ -26,6 +26,7 @@ export class ProductsComponent {
 
   deleteProduct(id: string, event: Event): void {
     event.preventDefault();
+    console.log(this.productList);
     console.log(id);
     const cf = confirm('Bạn có chắc chắn muốn xóa không?');
     if (cf) {

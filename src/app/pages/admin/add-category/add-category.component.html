@@ -1,0 +1,91 @@
+<div class="w-full">
+  <h2 class="text-center text-4xl font-extrabold dark:text-white">
+    Add Category
+  </h2>
+  <form
+    class="mx-auto mt-4"
+    [formGroup]="createForm"
+    (submit)="handleAddProduct($event)"
+  >
+    <div class="mb-5">
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Name</label
+      >
+      <input
+        type="email"
+        id="email"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Name..."
+        required
+        formControlName="name"
+      />
+      <div
+        *ngIf="
+          createForm['controls']['name'].dirty &&
+          createForm['controls']['name'].errors
+        "
+      >
+        <small
+          class="text-red-600"
+          *ngIf="createForm['controls']['name'].errors['required']"
+          >*name khong duoc bo trong</small
+        >
+        <small
+          class="text-red-600"
+          *ngIf="createForm['controls']['name'].errors['minlength']"
+          >*name toi thieu 3 ki tu</small
+        >
+        <small
+          class="text-red-600"
+          *ngIf="createForm['controls']['name'].errors['maxlength']"
+          >*name toi da 30 ki tu</small
+        >
+      </div>
+    </div>
+
+    <div class="">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Description</label
+      >
+      <textarea
+        id="message"
+        rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Description..."
+        required
+        formControlName="description"
+      ></textarea>
+      <div
+        *ngIf="
+          createForm['controls']['description'].dirty &&
+          createForm['controls']['description'].errors
+        "
+      >
+        <small
+          class="text-red-600"
+          *ngIf="createForm['controls']['description'].errors['required']"
+          >*Description khong duoc bo trong</small
+        >
+        <small
+          class="text-red-600"
+          *ngIf="createForm['controls']['description'].errors['minlength']"
+          >*Description toi thieu 10 ki tu</small
+        >
+        <small
+          class="text-red-600"
+          *ngIf="createForm['controls']['description'].errors['maxlength']"
+          >*Description toi da 1000 ki tu</small
+        >
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Submit
+    </button>
+  </form>
+</div>
