@@ -11,14 +11,14 @@ export type RegisterForm = {
   email: string;
   password: string;
   fullname: string;
-  age: number;
 };
 
 export type User = {
   _id: string;
   email: string;
-  fullname: string;
-  age: number;
-  createdAt: string;
-  updatedAt: string;
+  fullName: string;
+  // age: number;
+  avatar: string;
+  password: string;
+  registeredAt: string;
 };

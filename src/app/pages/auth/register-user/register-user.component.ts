@@ -24,15 +24,10 @@ export class RegisterUserComponent {
       Validators.minLength(3),
       Validators.maxLength(30),
     ]),
-    fullname: new FormControl('', [
+    fullName: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(30),
-    ]),
-    age: new FormControl('', [
-      Validators.required,
-      Validators.min(1),
-      Validators.max(100),
     ]),
   });
 

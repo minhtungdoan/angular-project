@@ -31,4 +31,16 @@ export class AuthService {
       user
     );
   }
+
+  searchUser(query: string) {
+    return this.http.get<User[]>(
+      `https://angular-project-api.vercel.app/search?query=${query}`
+    );
+  }
+
+  autocomplete(query: string) {
+    return this.http.get<User[]>(
+      `https://angular-project-api.vercel.app/autocomplete?query=${query}`
+    );
+  }
 }
