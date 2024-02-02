@@ -27,6 +27,7 @@ export class UsersComponent {
 
   p: number = 1;
   total: number = 0;
+  isSearch: boolean = false;
 
   ngOnInit(): void {
     this.getUsers();
@@ -39,6 +40,7 @@ export class UsersComponent {
   onSearch(event: Event) {
     event.preventDefault();
     this.loading = true;
+    this.isSearch = true;
 
     if (this.searchForm.value.searchValue) {
       this.userList = [];
@@ -54,6 +56,7 @@ export class UsersComponent {
   }
 
   getUsers(): void {
+    this.isSearch = false;
     this.userService.getUserList().subscribe((res: User[]) => {
       this.userList = res;
       this.loading = false;
@@ -62,6 +65,8 @@ export class UsersComponent {
 
   pageChangeEvent(event: number) {
     this.p = event;
-    this.getUsers();
+    if (!this.isSearch) {
+      this.getUsers();
+    }
   }
 }

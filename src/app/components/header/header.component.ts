@@ -18,11 +18,11 @@ export class HeaderComponent {
     },
     {
       label: 'About Us',
-      link: '/about-us',
+      link: '/',
     },
     {
       label: 'Shop',
-      link: '/shop',
+      link: '/',
     },
     {
       label: 'Contact',

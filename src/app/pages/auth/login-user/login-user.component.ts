@@ -42,7 +42,7 @@ export class LoginUserComponent {
           console.log(res);
           sessionStorage.setItem('token', JSON.stringify(res.token));
           alert('Đăng nhập thành công');
-          this.router.navigate(['/']);
+          this.router.navigate(['/admin/products']);
         },
         error: (err) => {
           console.log(err);

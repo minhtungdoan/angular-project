@@ -30,4 +30,12 @@ export class ProductService {
   editProductAmdmin(id: string, product: Laptop): Observable<Laptop> {
     return this.http.put<Laptop>(`${this.api}/${id}`, product);
   }
+  filterByCategory(category: string): Observable<Laptop[]> {
+    return this.http.get<Laptop[]>(
+      `${this.api}/filterByCategories?query=${category}`
+    );
+  }
+  searchProduct(query: string): Observable<Laptop[]> {
+    return this.http.get<Laptop[]>(`${this.api}/search?search=${query}`);
+  }
 }

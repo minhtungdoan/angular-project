@@ -76,15 +76,15 @@ export class UpdateProductComponent {
 
   getEditProduct(id: string) {
     this.productService.getProductDetail(id).subscribe((product) => {
-      console.log(123);
+      // console.log(123);
       this.editProduct = product;
       this.loading = false;
-      console.log(this.editProduct);
+      // console.log(this.editProduct);
     });
   }
   handleUpdateProduct(e: Event): void {
     e.preventDefault();
-    console.log(this.editProduct.category._id);
+    // console.log(this.editProduct.category._id);
     if (this.isEditting) {
       if (this.createForm.invalid) {
         alert('Vui lòng nhập đầy đủ thông tin');

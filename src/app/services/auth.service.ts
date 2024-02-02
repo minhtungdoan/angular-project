@@ -34,13 +34,13 @@ export class AuthService {
 
   searchUser(query: string) {
     return this.http.get<User[]>(
-      `https://angular-project-api.vercel.app/search?query=${query}`
+      `https://angular-project-api.vercel.app/auth/search?query=${query}`
     );
   }
 
   autocomplete(query: string) {
     return this.http.get<User[]>(
-      `https://angular-project-api.vercel.app/autocomplete?query=${query}`
+      `https://angular-project-api.vercel.app/auth/autocomplete?query=${query}`
     );
   }
 }
